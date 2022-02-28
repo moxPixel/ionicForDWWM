@@ -1,0 +1,7 @@
+{
+  "name": "airbnmap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -38,11 +38,11 @@
     </div>
   </div>
 
-  
+
   <div *ngFor="let city of cities | async">
-    <ion-card>
+    <ion-card [routerLink]="['/','map',city.name,city.lat,city.lng]">
       <img [src]="city.img">
       <h3>{{city.name}}</h3>
-    </ion-card> 
+    </ion-card>
   </div>
 </ion-content>

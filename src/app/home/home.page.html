@@ -1,20 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title>
-      Blank
+      AirbnMap
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!showForm" (click)="add()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="showForm" (click)="add()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true">
+  <div *ngIf="showForm">
+    <ion-item>
+      <ion-label position="floating">Ville:</ion-label>
+      <ion-input type="text" placeholder="Nom da ville" [(ngModel)]="fireBaseData.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Latitude:</ion-label>
+      <ion-input type="text" placeholder="Latitude de la ville" [(ngModel)]="fireBaseData.lat"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Longitude:</ion-label>
+      <ion-input type="text" placeholder="Longitude de la ville" [(ngModel)]="fireBaseData.lng"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Image:</ion-label>
+      <ion-input re type="text" placeholder="Image de la ville" [(ngModel)]="fireBaseData.img"></ion-input>
+    </ion-item>
+    <div class="ion-padding">
+      <ion-button expand="block" (click)="addFireBase()">Ajouter</ion-button>
+    </div>
+  </div>
+
+  
+  <div *ngFor="let city of cities | async">
+    <ion-card>
+      <img [src]="city.img">
+      <h3>{{city.name}}</h3>
+    </ion-card> 
   </div>
 </ion-content>

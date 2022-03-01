@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>add</ion-title>
+    <ion-title>Ajouter un logement</ion-title>
+    <ion-buttons>
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-item>
+    <ion-label position="floating">Titre:</ion-label>
+    <ion-input type="text" placeholder="Titre du logement" [(ngModel)]="cityDataLogement.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Type:</ion-label>
+    <ion-input type="text" placeholder="Type du logement" [(ngModel)]="cityDataLogement.type"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Image:</ion-label>
+    <ion-input type="text" placeholder="Image du logement" [(ngModel)]="cityDataLogement.img"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Prix:</ion-label>
+    <ion-input type="text" placeholder="Prix du logement" [(ngModel)]="cityDataLogement.price"></ion-input>
+  </ion-item>
+  <div class="ion-padding">
+    <ion-button (click)="addFirebase()" expand="block"color="success" >Ajouter</ion-button>
+   </div>
 </ion-content>

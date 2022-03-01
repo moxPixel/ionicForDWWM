@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>{{currentCity.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openAddPage()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
    <div id="map_canvas"></div>
+
+   
+  <div class="footer" *ngIf="showRoom.title">
+    <ion-row>
+      <ion-col size="4" class="img-box">
+        <img [src]="showRoom.img" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <h4 class="title" >{{showRoom.title}}</h4>
+        <div class="flex">
+          <p>{{showRoom.type}}</p>
+          <h4>{{showRoom.price}}/nuit</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>
